@@ -55,3 +55,5 @@ Thumbs.db
 .vscode/
 *.iml
 config/master.key
+
+/config/master.key

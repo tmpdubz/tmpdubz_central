@@ -44,12 +44,6 @@
           '';
         };
 
-        bundlerApp = (pkgs.bundlerEnv {
-          inherit ruby;
-          name = "rails-app";
-          gemdir = ./.;
-        }).rubyEnv;
-
       in {
         devShells.default = pkgs.mkShell {
           name = "rails-env";
@@ -91,16 +85,6 @@
             type = "app";
             program = "${redisApp}/bin/start-redis";
           };
-
-          default = {
-            type = "app";
-            program = "${bundlerApp}/bin/rails";
-          };
-        };
-
-        packages = {
-          default = bundlerApp;
-          rails-app = bundlerApp;
         };
       });
 }
