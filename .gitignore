@@ -1,0 +1,60 @@
+# Rails defaults
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+/public/assets
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+.byebug_history
+
+# SQLite (if used in dev/test)
+*.sqlite3
+*.sqlite3-journal
+
+# Environment files
+.env
+.env.*   # e.g. .env.development, .env.test
+
+# Bundler / Gems
+.bundle/
+vendor/bundle
+*.gem
+
+# Ruby build artifacts
+*.rbc
+.ruby-version
+.ruby-gemset
+
+# Nix
+/result
+/result-*
+*.drv
+*.lock*
+/.nix-channels
+/nix/
+/.gcroots/
+/.cache/
+
+# Direnv
+.envrc
+.direnv/
+
+# System-specific
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Editor-specific
+.idea/
+.vscode/
+*.iml
+
+# Custom app stuff (optional)
+*.log
+coverage/
