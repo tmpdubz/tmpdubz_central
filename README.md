@@ -1,4 +1,5 @@
-# My Rails App
+# tmpdubz Central
+A rails app for experimentation, fun, and probably never profit.
 
 This is a Ruby on Rails project configured for development using [Nix flakes](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html), [direnv](https://direnv.net/), and [hivemind](https://github.com/DarthSim/hivemind) for process management.
 
