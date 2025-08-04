@@ -43,6 +43,13 @@
             pg_ctl -D "$PGDATA" -l "$PGDATA/logfile" start
           '';
         };
+
+        bundlerApp = pkgs.bundlerApp {
+          inherit ruby;
+          pname = "rails-app";
+          gemdir = ./.;
+        };
+
       in {
         devShells.default = pkgs.mkShell {
           name = "rails-env";
@@ -74,14 +81,26 @@
           '';
         };
 
-        apps.start-db = {
-          type = "app";
-          program = "${postgresApp}/bin/start-db";
+        apps = {
+          start-db = {
+            type = "app";
+            program = "${postgresApp}/bin/start-db";
+          };
+
+          start-redis = {
+            type = "app";
+            program = "${redisApp}/bin/start-redis";
+          };
+
+          default = {
+            type = "app";
+            program = "${bundlerApp}/bin/rails";
+          };
         };
 
-        apps.start-redis = {
-          type = "app";
-          program = "${redisApp}/bin/start-redis";
+        packages = {
+          default = bundlerApp;
+          rails-app = bundlerApp;
         };
       });
 }
