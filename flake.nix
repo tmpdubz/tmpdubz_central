@@ -44,11 +44,11 @@
           '';
         };
 
-        bundlerApp = pkgs.bundlerApp {
+        bundlerApp = (pkgs.bundlerEnv {
           inherit ruby;
-          pname = "rails-app";
+          name = "rails-app";
           gemdir = ./.;
-        };
+        }).rubyEnv;
 
       in {
         devShells.default = pkgs.mkShell {
