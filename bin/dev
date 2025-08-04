@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Fail early
+set -euo pipefail
+
+# Ensure we're in the dev shell
+if [ -z "${IN_NIX_SHELL:-}" ]; then
+  echo "⚠️  Please run inside \`nix develop\` or enable direnv"
+  exit 1
+fi
+
+# Run hivemind
+exec hivemind Procfile.dev
