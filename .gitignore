@@ -30,11 +30,15 @@ vendor/bundle
 .envrc
 .direnv/
 
-# Nix artifacts
+# Nix artifacts (safe for flake-based projects)
 /result
 /result-*
 *.drv
-*.lock*
+
+# Allow flake.lock to be committed
+!flake.lock
+
+# Other legacy nix things (optional)
 /.nix-channels
 /nix/
 /.gcroots/
